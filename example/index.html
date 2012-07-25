@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ticker Example</title>
+    <style>
+
+      /*
+       * Page styles
+       */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'HelveticaNeue', 'Helvetica', Arial, sans-serif;
+        color: #333;
+        background: #eee;
+        font-size: 15px;
+      }
+      a {
+        color: #4aa;
+      }
+      .container {
+        width: 300px;
+        margin: 100px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        box-shadow: 0px 4px 3px -2px rgba(0,0,0,0.1);
+      }
+      /*
+       * Minimal ticker styles
+       */
+      #ticker {
+        position: relative;
+        height: 20px;
+      }
+      .ticker-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <strong>Latest News</strong>
+      <div id="ticker"></div>
+      <button class="play-pause">Pause</button>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://raw.github.com/benbarnett/jQuery-Animate-Enhanced/master/jquery.animate-enhanced.min.js"></script>
+    <script src="https://raw.github.com/documentcloud/underscore/master/underscore-min.js"></script>
+    <script src="../src/ticker.min.js"></script>
+    <script src="./js/example.js"></script>
+  </body>
+</html>
