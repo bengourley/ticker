@@ -64,14 +64,19 @@ Ticker.prototype.pause = function () {
 
 Ticker.prototype.resume = function () {
   if (this.isPlaying) return this
+  this.next()
   this.start(this.index)
   return this
 }
 
 Ticker.prototype.next = function (pause) {
   this.index++
-  if (this.index === this._items.length && this.options.loop) {
-    this.index = 0
+  if (this.index >= this._items.length) {
+    if (this.options.loop) {
+      this.index = 0
+    } else {
+      return this
+    }
   }
   this.goTo(this.index)
   return this
@@ -79,8 +84,12 @@ Ticker.prototype.next = function (pause) {
 
 Ticker.prototype.prev = function (pause) {
   this.index--
-  if (this.index === -1 && this.options.loop) {
-    this.index = this._items.length - 1
+  if (this.index < 0) {
+    if (this.options.loop) {
+      this.index = this._items.length - 1
+    } else {
+      return this
+    }
   }
   this.goTo(this.index)
   return this
