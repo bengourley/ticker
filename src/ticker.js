@@ -131,6 +131,12 @@ Ticker.prototype.goTo = function (index, pause) {
 
 }
 
-window.Ticker = Ticker
+if (window.module && window.require) {
+  module('Ticker', function (module) {
+    module.exports = Ticker
+  })
+} else {
+  window.Ticker = Ticker
+}
 
 })()
