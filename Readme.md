@@ -112,7 +112,7 @@ Transition to the next item. Passes `pause` on to `ticker.goTo()`.
 
 Transition to the previous item. Passes `pause` on to `ticker.goTo()`.
 
-## ticker.play(index)
+## ticker.start(index)
 
 Run through items automatically. Starts from `index` (optional defaulting to 0).
 
