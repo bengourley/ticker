@@ -78,7 +78,7 @@ Ticker.prototype.next = function (pause) {
       return this
     }
   }
-  this.goTo(this.index)
+  this.goTo(this.index, pause)
   return this
 }
 
@@ -91,12 +91,13 @@ Ticker.prototype.prev = function (pause) {
       return this
     }
   }
-  this.goTo(this.index)
+  this.goTo(this.index, pause)
   return this
 }
 
 Ticker.prototype.goTo = function (index, pause) {
 
+  if (pause) this.pause()
   if (index < 0 || index === this._items.length) return this
 
   if (this.current) {
@@ -126,6 +127,7 @@ Ticker.prototype.goTo = function (index, pause) {
     .css({ opacity: 0 })
     .appendTo(this.root)
     .animate({ opacity: 1 }, this.options.transitionTime)
+
 
   return this
 
